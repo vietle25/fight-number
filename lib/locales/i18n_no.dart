@@ -1,0 +1,32 @@
+const Map<String, String> no = {
+  "rules": "Regler",
+  "rule1": "1. Klikk på hjulet",
+  "rule2": "2. Den valgte personen velger et kort.",
+  "rule3": "3. Denne personen må fullføre oppgaven.",
+  "rule4": "4. Klikk på hjulet igjen.",
+  "gotIt": "Har det",
+  "importantNotice": "Viktig varsel",
+  "noticeDes":
+      "Trykk OK for å godta våre vilkår for bruk og personvernerklæring. Vennligst fest på en ansvarlig måte.",
+  "termsOfUse": "Vilkår for bruk",
+  "privacyPolicy": "Personvernregler",
+  "cancel": "Avbryt",
+  "ok": "Ok",
+  "disclaimer": "Ansvarsfraskrivelse",
+  "disclaimerDes":
+      "Vennligst fest ansvarlig. Aldri gjør noe for å sette deg selv eller noen andre i fare. Ha det gøy!",
+  "personalData": "Personlig informasjon",
+  "players": "Spillere",
+  "done": "Ferdig",
+  "category": "Kategori",
+  "dirty": "Skitne",
+  "casual": "Uformelt",
+  "dirtyPlus": "Skitten+",
+  "dirtyExtreme": "Skitten ekstrem",
+  "spin": "Snurre rundt",
+  "clickHere": "Klikk her",
+  "chooseOne": "Velg en",
+  "truth": "Sannhet",
+  "dare": "Tør",
+  "clickToContinue": "Klikk for å fortsette"
+};

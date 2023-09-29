@@ -1,0 +1,32 @@
+const Map<String, String> pt = {
+  "rules": "Regras",
+  "rule1": "1. Clique na roda",
+  "rule2": "2. A pessoa selecionada escolhe uma carta.",
+  "rule3": "3. Esta pessoa deve concluir a tarefa.",
+  "rule4": "4. Clique na roda novamente.",
+  "gotIt": "Entendi",
+  "importantNotice": "Notícia importante",
+  "noticeDes":
+      "Pressione OK para aceitar nossos Termos de Uso e Política de Privacidade. Participe com responsabilidade.",
+  "termsOfUse": "Termos de uso",
+  "privacyPolicy": "Política de Privacidade",
+  "cancel": "Cancelar",
+  "ok": "OK",
+  "disclaimer": "Isenção de responsabilidade",
+  "disclaimerDes":
+      "Por favor, festeje com responsabilidade. Nunca faça algo que coloque você ou qualquer outra pessoa em perigo. Divirta-se!",
+  "personalData": "Dados pessoais",
+  "players": "Jogadoras",
+  "done": "Feito",
+  "category": "Categoria",
+  "dirty": "Sujo",
+  "casual": "Casual",
+  "dirtyPlus": "Sujo +",
+  "dirtyExtreme": "Extremo sujo",
+  "spin": "Rodar",
+  "clickHere": "Clique aqui",
+  "chooseOne": "Escolha um",
+  "truth": "Verdade",
+  "dare": "Atreva-se",
+  "clickToContinue": "Clique para continuar"
+};

@@ -1,0 +1,32 @@
+const Map<String, String> it = {
+  "rules": "Regole",
+  "rule1": "1. Fai clic sulla ruota",
+  "rule2": "2. La persona selezionata sceglie una carta.",
+  "rule3": "3. Questa persona deve completare l'attività.",
+  "rule4": "4. Fai di nuovo clic sulla ruota.",
+  "gotIt": "Fatto",
+  "importantNotice": "Avviso IMPORTANTE",
+  "noticeDes":
+      "Premi OK per accettare i nostri Termini di utilizzo e l'Informativa sulla privacy. Si prega di partecipare in modo responsabile.",
+  "termsOfUse": "Termini di utilizzo",
+  "privacyPolicy": "Politica sulla riservatezza",
+  "cancel": "Annulla",
+  "ok": "OK",
+  "disclaimer": "Disclaimer",
+  "disclaimerDes":
+      "Per favore, festeggia responsabilmente. Non fare mai qualcosa che metta in pericolo te stesso o qualcun altro. Divertiti!",
+  "personalData": "Dati personali",
+  "players": "Giocatori",
+  "done": "Fatto",
+  "category": "Categoria",
+  "dirty": "Sporco",
+  "casual": "Casuale",
+  "dirtyPlus": "Sporco+",
+  "dirtyExtreme": "Sporco estremo",
+  "spin": "Rotazione",
+  "clickHere": "Clicca qui",
+  "chooseOne": "Scegline uno",
+  "truth": "Verità",
+  "dare": "Osare",
+  "clickToContinue": "Clicca per continuare"
+};

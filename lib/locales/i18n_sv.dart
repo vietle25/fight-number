@@ -1,0 +1,32 @@
+const Map<String, String> sv = {
+  "rules": "Regler",
+  "rule1": "1. Klicka på hjulet",
+  "rule2": "2. Den valda personen väljer ett kort.",
+  "rule3": "3. Den här personen måste slutföra uppgiften.",
+  "rule4": "4. Klicka på hjulet igen.",
+  "gotIt": "Jag fattar",
+  "importantNotice": "Viktigt meddelande",
+  "noticeDes":
+      "Tryck på OK för att acceptera våra användarvillkor och integritetspolicy. Vänligen festa på ett ansvarsfullt sätt.",
+  "termsOfUse": "Villkor",
+  "privacyPolicy": "Integritetspolicy",
+  "cancel": "Annullera",
+  "ok": "Ok",
+  "disclaimer": "Varning",
+  "disclaimerDes":
+      "Snälla festa ansvarsfullt. Gör aldrig något för att utsätta dig själv eller någon annan i fara. Ha kul!",
+  "personalData": "Personlig information",
+  "players": "Spelare",
+  "done": "Gjort",
+  "category": "Kategori",
+  "dirty": "Smutsig",
+  "casual": "Tillfällig",
+  "dirtyPlus": "Smutsig+",
+  "dirtyExtreme": "Smutsig extrem",
+  "spin": "Snurra",
+  "clickHere": "Klicka här",
+  "chooseOne": "Välj en",
+  "truth": "Sanning",
+  "dare": "Våga",
+  "clickToContinue": "Klicka för att fortsätta"
+};

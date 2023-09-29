@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420644150271",
+    "project_id": "math-game-ae531",
+    "storage_bucket": "math-game-ae531.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420644150271:android:b568e5430fbf26979c65ca",
+        "android_client_info": {
+          "package_name": "com.viettech.fight_number"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420644150271-9aiab9s850no94lmtrrm030et79j7hj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVl9IqQaFqHR6SmLv0QZ85QdX93PMlc78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420644150271-9aiab9s850no94lmtrrm030et79j7hj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+const Map<String, String> de = {
+  "rules": "Regeln",
+  "rule1": "1. Klicken Sie auf das Rad",
+  "rule2": "2. Die ausgewählte Person wählt eine Karte.",
+  "rule3": "3. Diese Person muss die Aufgabe erledigen.",
+  "rule4": "4. Klicken Sie erneut auf das Rad.",
+  "gotIt": "Ich habs",
+  "importantNotice": "Wichtiger Hinweis",
+  "noticeDes":
+      "Drücken Sie OK, um unsere Nutzungsbedingungen und Datenschutzrichtlinie zu akzeptieren. Bitte feiern Sie verantwortungsbewusst.",
+  "termsOfUse": "Nutzungsbedingungen",
+  "privacyPolicy": "Datenschutz-Bestimmungen",
+  "cancel": "Stornieren",
+  "ok": "OK",
+  "disclaimer": "Haftungsausschluss",
+  "disclaimerDes":
+      "Bitte feiern Sie verantwortungsbewusst. Tun Sie niemals etwas, um sich selbst oder andere in Gefahr zu bringen. Viel Spaß!",
+  "personalData": "Persönliche Daten",
+  "players": "Spieler",
+  "done": "Fertig",
+  "category": "Kategorie",
+  "dirty": "Schmutzig",
+  "casual": "Lässig",
+  "dirtyPlus": "Schmutzig +",
+  "dirtyExtreme": "Schmutziges Extrem",
+  "spin": "Dreh",
+  "clickHere": "Klick Hier",
+  "chooseOne": "Wähle ein...",
+  "truth": "Wahrheit",
+  "dare": "Wagen",
+  "clickToContinue": "Klicke um Fortzufahren"
+};

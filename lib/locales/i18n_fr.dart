@@ -1,0 +1,32 @@
+const Map<String, String> fr = {
+  "rules": "Règles",
+  "rule1": "1. Cliquez sur la roue",
+  "rule2": "2. La personne sélectionnée choisit une carte.",
+  "rule3": "3. Cette personne doit terminer la tâche.",
+  "rule4": "4. Cliquez à nouveau sur la molette.",
+  "gotIt": "J'ai compris",
+  "importantNotice": "Avis important",
+  "noticeDes":
+      "Appuyez sur OK pour accepter nos conditions d'utilisation et notre politique de confidentialité. Veuillez faire la fête de manière responsable.",
+  "termsOfUse": "Conditions d'utilisation",
+  "privacyPolicy": "Politique de confidentialité",
+  "cancel": "Annuler",
+  "ok": "D'accord",
+  "disclaimer": "Clause de non-responsabilité",
+  "disclaimerDes":
+      "S'il vous plaît, faites la fête de manière responsable. Ne faites jamais rien pour vous mettre en danger ou mettre quelqu'un d'autre en danger. Amusez-vous !",
+  "personalData": "Données personnelles",
+  "players": "Joueurs",
+  "done": "Fait",
+  "category": "Catégorie",
+  "dirty": "Sale",
+  "casual": "Occasionnel",
+  "dirtyPlus": "Sale+",
+  "dirtyExtreme": "Sale extrême",
+  "spin": "Rotation",
+  "clickHere": "Cliquez ici",
+  "chooseOne": "Choisissez-en un",
+  "truth": "Vérité",
+  "dare": "Oser",
+  "clickToContinue": "Cliquez pour continuer"
+};

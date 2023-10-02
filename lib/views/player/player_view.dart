@@ -8,7 +8,6 @@ import 'package:fight_number/values/colors.dart';
 import 'package:fight_number/values/images.dart';
 import 'package:fight_number/views/base/base_view.dart';
 import 'package:fight_number/widgets/button_widget.dart';
-import 'package:fight_number/widgets/header.dart';
 import 'package:fight_number/widgets/pressable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,9 +45,24 @@ class PlayerView extends BaseView {
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Header(
-                  title: Localizes.players.tr.toUpperCase(),
-                  visibleBack: false,
+                Container(
+                  margin: const EdgeInsets.only(top: kToolbarHeight + 24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "fightNumberTitle".tr.toUpperCase(),
+                        style: CommonStyle.title(size: 25.sp).merge(
+                          const TextStyle(
+                            height: 1.35,
+                          ),
+                        ),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.0,
+                      ),
+                    ],
+                  ),
                 ),
                 Expanded(child: renderList()),
                 renderButton(),
@@ -192,6 +206,9 @@ class PlayerView extends BaseView {
       children: [
         PressableWidget(
           radius: 8,
+          color: _controller.players.length == 4
+              ? Colors.white60.withOpacity(0.4)
+              : Colors.white,
           onTap: _controller.addPlayer,
           margin: const EdgeInsets.only(right: 8, bottom: 24),
           padding: EdgeInsets.all(1.5.w),
@@ -224,9 +241,11 @@ class PlayerView extends BaseView {
             children: [
               Expanded(
                 child: Text(
-                  "${"note".tr}: ${"playerNumberDes".tr}",
+                  "playerNumberDes".tr,
                   style: CommonStyle.textSmall().merge(const TextStyle(
                     fontStyle: FontStyle.italic,
+                    wordSpacing: 2,
+                    fontSize: 15,
                   )),
                 ),
               ),
@@ -237,7 +256,7 @@ class PlayerView extends BaseView {
           onTap: () {
             // _controller.goTo(AppRoute.category);
 
-            _controller.goTo(AppRoute.spin);
+            _controller.goTo(AppRoute.board);
           },
           alignment: MainAxisAlignment.center,
           title: "continue".tr.toUpperCase(),

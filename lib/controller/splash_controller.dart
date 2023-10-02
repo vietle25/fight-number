@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fight_number/controller/base_controller.dart';
+import 'package:fight_number/controller/board_game_controller.dart';
 import 'package:fight_number/controller/category_controller.dart';
 import 'package:fight_number/controller/player_controller.dart';
 import 'package:fight_number/controller/purchase_controller.dart';
@@ -20,6 +21,8 @@ class SplashController extends BaseController {
     final PlayerController playerController = Get.put(PlayerController());
     final CategoryController categoryController = Get.put(CategoryController());
     final PurchaseController purchaseController = Get.put(PurchaseController());
+    final BoardGameController boardGameController =
+        Get.put(BoardGameController());
     precacheImage(
         const AssetImage("assets/images/ic_casual.png"), Get.context!);
     precacheImage(const AssetImage("assets/images/card_bg.png"), Get.context!);
@@ -45,41 +48,8 @@ class SplashController extends BaseController {
     precacheImage(const AssetImage("assets/images/player1.png"), Get.context!);
     precacheImage(const AssetImage("assets/images/player2.png"), Get.context!);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Get.toNamed(AppRoute.rules);
+      Get.toNamed(AppRoute.player);
       FlutterNativeSplash.remove();
-    });
-
-    final Stream<List<PurchaseDetails>> purchaseUpdated =
-        InAppPurchase.instance.purchaseStream;
-    subscription = purchaseUpdated.listen((purchaseDetailsList) {
-      _listenToPurchaseUpdated(purchaseDetailsList);
-    }, onDone: () {
-      subscription.cancel();
-    }, onError: (error) {
-      // handle error here.
-    });
-  }
-
-  void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) {
-    purchaseDetailsList.forEach((PurchaseDetails purchaseDetails) async {
-      if (purchaseDetails.status == PurchaseStatus.pending) {
-        // _showPendingUI();
-      } else {
-        if (purchaseDetails.status == PurchaseStatus.error) {
-          // _handleError(purchaseDetails.error!);
-        } else if (purchaseDetails.status == PurchaseStatus.purchased ||
-            purchaseDetails.status == PurchaseStatus.restored) {
-          // bool valid = await _verifyPurchase(purchaseDetails);
-          // if (valid) {
-          //   _deliverProduct(purchaseDetails);
-          // } else {
-          //   _handleInvalidPurchase(purchaseDetails);
-          // }
-        }
-        if (purchaseDetails.pendingCompletePurchase) {
-          await InAppPurchase.instance.completePurchase(purchaseDetails);
-        }
-      }
     });
   }
 }

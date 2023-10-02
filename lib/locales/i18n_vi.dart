@@ -33,7 +33,9 @@ const Map<String, String> vi = {
   "notice": "Lưu ý",
   "continue": "Tiếp tục",
   "note": "Ghi chú",
-  "playerNumberDes": "Tối thiểu 2 người, và tối đa 8 người chơi!",
+  "playerNumberDes":
+      "Bạn có thể thêm tối đa 4 người chơi! Nhưng phải có ít nhất 2 người chơi, vì chơi một mình không vui đâu!",
   "play": "Chơi",
-  "chooseOneCard": "Chọn một thẻ bài"
+  "chooseOneCard": "Chọn một thẻ bài",
+  "fightNumberTitle": "Chiến thần\ntìm số"
 };

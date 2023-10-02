@@ -39,7 +39,7 @@ class PlayerController extends BaseController {
   }
 
   void addPlayer() {
-    if (players.length < 8) {
+    if (players.length < 4) {
       players.add(
         PlayerModel(
           name: 'Player ${players.length + 1}',

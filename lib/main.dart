@@ -55,7 +55,7 @@ void configLoading() => EasyLoading.instance
 
 class MyApp extends StatelessWidget {
   getInitialRoute() {
-    return AppRoute.player;
+    return AppRoute.splash;
   }
 
   @override

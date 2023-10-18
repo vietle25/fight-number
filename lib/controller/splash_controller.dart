@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:fight_number/controller/base_controller.dart';
-import 'package:fight_number/controller/board_game_controller.dart';
 import 'package:fight_number/controller/category_controller.dart';
 import 'package:fight_number/controller/player_controller.dart';
 import 'package:fight_number/controller/purchase_controller.dart';
@@ -21,8 +20,8 @@ class SplashController extends BaseController {
     final PlayerController playerController = Get.put(PlayerController());
     final CategoryController categoryController = Get.put(CategoryController());
     final PurchaseController purchaseController = Get.put(PurchaseController());
-    final BoardGameController boardGameController =
-        Get.put(BoardGameController());
+    // final BoardGameController boardGameController =
+    //     Get.put(BoardGameController());
     precacheImage(
         const AssetImage("assets/images/ic_casual.png"), Get.context!);
     precacheImage(const AssetImage("assets/images/card_bg.png"), Get.context!);

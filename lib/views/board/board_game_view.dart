@@ -6,6 +6,8 @@ import 'package:fight_number/utils/utils.dart';
 import 'package:fight_number/values/colors.dart';
 import 'package:fight_number/values/images.dart';
 import 'package:fight_number/views/base/base_view.dart';
+import 'package:fight_number/views/board/quarter_circle.dart';
+import 'package:fight_number/views/spin/bouncing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -22,6 +24,62 @@ class BoardGameView extends BaseView {
   Widget renderBody({required BuildContext context}) {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: AppColors.transparent));
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        // Container(
+        //   width: _controller.playerOne.width,
+        //   height: _controller.playerOne.height,
+        //   color: Colors.white70,
+        // ),
+        QuarterCircle(),
+        Expanded(
+          child: Center(
+            child: Obx(() {
+              return Stack(
+                children: _controller.data
+                    .map((e) => Positioned(
+                          left: e.left,
+                          top: e.top,
+                          child: Transform.rotate(
+                            angle: e.rotation,
+                            child: Bouncing(
+                              onPress: () {
+                                // _controller.onTapNumber(e);
+                              },
+                              onMove: (PointerMoveEvent event) {
+                                print(
+                                    '${event.position.dx} - ${event.position.dy}');
+                                _controller.onDrag(e,
+                                    dx: event.position.dx,
+                                    dy: event.position.dy);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey.withOpacity(0.5),
+                                ),
+                                padding: EdgeInsets.all(e.padding),
+                                child: Text(
+                                  '${e.value}',
+                                  // You can generate your own numbers here
+                                  style: TextStyle(
+                                    fontSize: e.fontSize,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ))
+                    .toList(),
+              );
+            }),
+          ),
+        ),
+      ],
+    );
+
     return RandomNumbersScreen();
     final random = Random();
     final screenWidth = MediaQuery.of(context).size.width;
@@ -128,23 +186,19 @@ class _RandomNumbersScreenState extends State<RandomNumbersScreen> {
   Isolate? isolate;
 
   _RandomNumbersScreenState()
-      : screenWidth = MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
-            .size
-            .width,
+      : screenWidth =
+            MediaQueryData.fromView(WidgetsBinding.instance!.window).size.width,
         screenHeight =
-            MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
-                .size
-                .height;
+            MediaQueryData.fromView(WidgetsBinding.instance.window).size.height;
 
   @override
   void initState() {
     super.initState();
-
-    _startIsolate();
+    // _startIsolate();
   }
 
   void _startIsolate() async {
-    isolate = await Isolate.spawn(_generateNumbers, _port.sendPort);
+    // isolate = await Isolate.spawn(_generateNumbers, _port.sendPort);
     _port.listen((data) {
       if (data is List<Widget>) {
         setState(() {
@@ -164,24 +218,24 @@ class _RandomNumbersScreenState extends State<RandomNumbersScreen> {
   Widget build(BuildContext context) {
     return Center(
       child: Stack(
-        children: items,
+        children: _generateNumbers(),
       ),
     );
   }
 
-  void _generateNumbers(SendPort sendPort) {
+  _generateNumbers() {
     final List<Widget> items = [];
     final double screenWidth =
-        Utils.getWidth(); // Replace with your desired screen width
+        Utils.getWidth() - 10; // Replace with your desired screen width
     final double screenHeight =
-        Utils.getHeight(); // Replace with your desired screen height
+        Utils.getHeight() - 10; // Replace with your desired screen height
     final List<Rect> usedRectangles = [];
-    final int numberOfNumbers = 100; // You can change this number
+    const int numberOfNumbers = 100; // You can change this number
 
-    final double minFontSize = 11.0;
-    final double maxFontSize = 20.0;
-    final double minPadding = 4.0;
-    final double maxPadding = 8.0;
+    const double minFontSize = 11.0;
+    const double maxFontSize = 20.0;
+    const double minPadding = 4.0;
+    const double maxPadding = 8.0;
 
     final random = Random();
 
@@ -189,17 +243,19 @@ class _RandomNumbersScreenState extends State<RandomNumbersScreen> {
       double left, top;
       Rect newRect;
       bool collision;
+      double fontSize;
+      double padding;
 
       do {
-        final double fontSize =
+        fontSize =
             minFontSize + random.nextDouble() * (maxFontSize - minFontSize);
-        final double padding =
-            minPadding + random.nextDouble() * (maxPadding - minPadding);
+        padding = minPadding + random.nextDouble() * (maxPadding - minPadding);
 
         left = random.nextDouble() * (screenWidth - fontSize);
         top = random.nextDouble() * (screenHeight - fontSize);
 
-        newRect = Rect.fromLTWH(left, top, fontSize, fontSize);
+        newRect = Rect.fromLTWH(
+            left, top, fontSize + padding / 2, fontSize + padding / 2);
         collision = false;
 
         for (final rect in usedRectangles) {
@@ -218,13 +274,13 @@ class _RandomNumbersScreenState extends State<RandomNumbersScreen> {
         child: Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.grey,
+            color: Colors.grey.withOpacity(0.5),
           ),
-          padding: EdgeInsets.all(minPadding),
+          padding: EdgeInsets.all(padding ?? 4),
           child: Text(
             '$i', // You can generate your own numbers here
             style: TextStyle(
-              fontSize: minFontSize,
+              fontSize: fontSize,
               color: Colors.white,
             ),
           ),
@@ -233,8 +289,8 @@ class _RandomNumbersScreenState extends State<RandomNumbersScreen> {
 
       items.add(item);
     }
-
-    sendPort.send(items);
+    return items;
+    // sendPort.send(items);
   }
 }
 
@@ -245,13 +301,11 @@ class RandomNumbersScreen1 extends StatelessWidget {
   final List<Rect> usedRectangles = [];
 
   RandomNumbersScreen1()
-      : screenWidth = MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
+      : screenWidth =
+            MediaQueryData.fromView(WidgetsBinding.instance!.window).size.width,
+        screenHeight = MediaQueryData.fromView(WidgetsBinding.instance!.window)
             .size
-            .width,
-        screenHeight =
-            MediaQueryData.fromWindow(WidgetsBinding.instance!.window)
-                .size
-                .height;
+            .height;
 
   @override
   Widget build(BuildContext context) {

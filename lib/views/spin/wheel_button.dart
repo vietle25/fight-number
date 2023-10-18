@@ -46,6 +46,7 @@ class WheelButtonState extends State<WheelButton>
       ),
       child: Bouncing(
         onPress: () => widget.onTap(),
+        onMove: (PointerMoveEvent event) {},
         child: Material(
           color: Colors.white,
           borderRadius: BorderRadius.circular(width),

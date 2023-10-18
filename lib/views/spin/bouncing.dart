@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class Bouncing extends StatefulWidget {
   final Widget child;
   final VoidCallback onPress;
+  final Function(PointerMoveEvent event) onMove;
 
-  const Bouncing({super.key, required this.child, required this.onPress});
+  const Bouncing({
+    super.key,
+    required this.child,
+    required this.onPress,
+    required this.onMove,
+  });
 
   @override
   _BouncingState createState() => _BouncingState();
@@ -21,8 +27,8 @@ class _BouncingState extends State<Bouncing>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 100),
-      lowerBound: 0.0,
-      upperBound: 0.1,
+      lowerBound: -0.1,
+      upperBound: 0.2,
     );
     _controller.addListener(() {
       setState(() {});
@@ -39,6 +45,9 @@ class _BouncingState extends State<Bouncing>
   Widget build(BuildContext context) {
     _scale = 1 - _controller.value;
     return Listener(
+      onPointerMove: (PointerMoveEvent event) {
+        widget.onMove(event);
+      },
       onPointerDown: (PointerDownEvent event) {
         _controller.forward();
       },

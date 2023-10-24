@@ -6,7 +6,8 @@ import 'package:fight_number/utils/utils.dart';
 import 'package:fight_number/values/colors.dart';
 import 'package:fight_number/values/images.dart';
 import 'package:fight_number/views/base/base_view.dart';
-import 'package:fight_number/views/board/quarter_circle.dart';
+import 'package:fight_number/views/board/quarter_circle_bottom_right.dart';
+import 'package:fight_number/views/board/quarter_circle_top_left.dart';
 import 'package:fight_number/views/spin/bouncing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,19 +25,20 @@ class BoardGameView extends BaseView {
   Widget renderBody({required BuildContext context}) {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: AppColors.transparent));
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return Stack(
       children: [
-        // Container(
-        //   width: _controller.playerOne.width,
-        //   height: _controller.playerOne.height,
-        //   color: Colors.white70,
-        // ),
-        QuarterCircle(),
+        QuarterCircleTopLeft(),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          child: QuarterCircleBottomRight(),
+        ),
         Expanded(
           child: Center(
             child: Obx(() {
               return Stack(
+                alignment: Alignment.center,
+                fit: StackFit.expand,
                 children: _controller.data
                     .map((e) => Positioned(
                           left: e.left,

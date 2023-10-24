@@ -1,10 +1,11 @@
+import 'package:fight_number/utils/utils.dart';
 import 'package:flutter/material.dart';
 
-class QuarterCircle extends StatelessWidget {
+class QuarterCircleBottomRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      size: Size(300, 100), // Size of the canvas
+      size: Size(Utils.getWidth(), 100), // Size of the canvas
       painter: QuarterCirclePainter(),
     );
   }
@@ -18,14 +19,14 @@ class QuarterCirclePainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     const radius = 100.0; // Adjust the radius as needed
-    final center = const Offset(0, 0);
+    var center = Offset(size.width, size.height);
 
     final path = Path()
       ..moveTo(center.dx, center.dy)
       ..arcTo(
         Rect.fromCircle(center: center, radius: radius),
-        0.5 * 3.14, // Start angle (0.5 * pi)
-        0.5 * 3.14, // Sweep angle (0.5 * pi, which is 90 degrees)
+        1 * 3.14, // Start angle (0.5 * pi)
+        1 * 3.14, // Sweep angle (0.5 * pi, which is 90 degrees)
         false,
       );
 
